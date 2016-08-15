@@ -1,0 +1,58 @@
+<!doctype html>
+
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>404</title>
+	<meta name="description" content="404">
+	<meta name="author" content="SergeyGG">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+    <div ng-controller="myCtrl">
+
+		<p class="title">{{title}}</p>
+		<p>Не ругайтесь: <input type="text" ng-model="title" autofocus></p>
+		<p><img src="images/basket.png" alt="basket"></p>
+     	<p class="error">Страницы, которую вы пытаетесь посмотреть, тут нет. <br>
+     	Может, попробуете что-нибудь еще?</p>
+     	<p>Попробую! <input type="checkbox" ng-model="Search"></p>
+
+     	<form ng-show="Search" action="" method="post" class="search">
+		  	<input type="search" name="" placeholder="поиск" class="input" />
+		  	<input type="submit" name="" value="" class="submit" />
+		</form>
+		
+		
+		<button ng-click="showMenu()">Меню</button>	
+        <nav ng-show="Menu">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li><a href="#">Новости</a></li>
+                <li><a href="#">Контакты</a></li>
+            </ul>	
+        </nav>
+    
+	</div>
+
+<script>
+var app = angular.module('myApp', []);
+
+app.controller('myCtrl', function($scope) {
+	
+    $scope.Menu = false;
+    $scope.showMenu = function() {
+        $scope.Menu = !$scope.Menu;
+    }
+});
+</script>
+
+</body> 
+</html>
